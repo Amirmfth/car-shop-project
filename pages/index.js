@@ -1,13 +1,19 @@
-export default function Home() {
+import AllButton from "@/components/modules/AllButton";
+import Categories from "@/components/modules/Categories";
+import SearchBar from "@/components/modules/SearchBar";
+import CarsPage from "@/components/templates/CarsPage";
+import carsData from "@/data/carsData";
+
+function Index() {
+  const cars = carsData.slice(0, 3);
   return (
     <div>
-      <h1>Car store app</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-        fugiat saepe doloribus commodi eaque culpa neque, est fugit ex aliquid
-        quidem recusandae repudiandae. Repellat officiis error vero eius non
-        vel.
-      </p>
+      <SearchBar />
+      <Categories />
+      <AllButton />
+      <CarsPage data={cars} />
     </div>
   );
 }
+
+export default Index;
