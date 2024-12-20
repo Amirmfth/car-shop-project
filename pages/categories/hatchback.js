@@ -1,11 +1,10 @@
-import Card from "@/components/modules/Card";
+
+import CarList from "@/components/templates/CarList";
 import carsData from "@/data/carsData";
 
 function Hatchback() {
   const hatchbackCars = carsData.filter((car) => car.category === "hatchback");
-  return <div>
-    {hatchbackCars.map(car => (<Card {...car}/>))}
-  </div>;
+  return <CarList data={hatchbackCars} />;
 }
 
 export default Hatchback;

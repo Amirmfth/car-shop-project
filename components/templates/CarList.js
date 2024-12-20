@@ -1,8 +1,29 @@
-import styles from "./CarList.module.css"
-function CarList() {
+import { useRouter } from "next/router";
+import styles from "./CarList.module.css";
+import Back from "../icons/Back";
+import Card from "../modules/Card";
+
+
+function CarList({ data }) {
+  const router = useRouter();
+
+  // handler
+  const backHandler = () => {
+    router.back();
+  };
   return (
-    <div>CarList</div>
-  )
+    <div className={styles.container}>
+      <div className={styles.back} onClick={backHandler}>
+        <Back />
+        <p>back</p>
+      </div>
+      <div className={styles.cards}>
+        {data.map((item) => (
+          <Card key={item.id} {...item} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
-export default CarList
+export default CarList;
